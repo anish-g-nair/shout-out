@@ -1,0 +1,18 @@
+[
+  {
+    "recipient": { "name": "Simon", "email": "optional, maybe not be sent" },
+    "message": {
+      "title": "optional, maybe not sent",
+      "description": "You are awesome"
+    },
+    "from": "Alice" // Optional field
+  },
+  {
+    "recipient": { "name": "John Lukas", "email": "optional, maybe not be sent" },
+    "message": {
+      "title": "optional, maybe not sent",
+      "description": "Great Job!"
+    },
+    "from": "Bob" // Optional field
+  }
+]
