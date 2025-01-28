@@ -10,7 +10,7 @@ const app = express();
 // Configure CORS middleware
 app.use(
   cors({
-    origin: 'http://localhost:3000', // Allow only this origin to access the server
+    origin: 'https://shout-out-fe-app.vercel.app', // Allow only this origin to access the server
     methods: ['GET', 'POST'], // Allowed HTTP methods
     credentials: true, // Enable cookies and other credentials in requests
   })
