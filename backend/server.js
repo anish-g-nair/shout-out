@@ -10,8 +10,8 @@ const app = express();
 // Configure CORS middleware
 app.use(
   cors({
-    origin: 'http://example.com', // Allow only this origin to access the server
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    origin: 'http://localhost:3000', // Allow only this origin to access the server
+    methods: ['GET', 'POST'], // Allowed HTTP methods
     credentials: true, // Enable cookies and other credentials in requests
   })
 );
