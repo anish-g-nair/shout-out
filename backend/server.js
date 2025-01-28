@@ -10,11 +10,7 @@ const app = express();
 // Configure CORS middleware
 app.use(
   cors({
-
-
-
     origin: "*", // Allow only this origin to access the server
-
     methods: ['GET', 'POST'], // Allowed HTTP methods
     credentials: true, // Enable cookies and other credentials in requests
   })
