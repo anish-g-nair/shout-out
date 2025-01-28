@@ -18,7 +18,7 @@ app.use(
 app.use(bodyParser.json());
 
 // MongoDB Connection
-const mongoUri = 'mongodb+srv://devputler:JAC0ejgvHY3EGNJw@default.7oahe.mongodb.net/global_board?retryWrites=true&w=majority&appName=Default' || process.env.MONGO_URI;
+const mongoUri = 'process.env.MONGO_URI || 'mongodb://localhost:27017/messagesDB';
 
 mongoose.connect(mongoUri)
   .then(() => console.log('Connected to MongoDB'))
