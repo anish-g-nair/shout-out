@@ -18,7 +18,7 @@ app.use(
 app.use(bodyParser.json());
 
 // MongoDB Connection
-const mongoUri = 'process.env.MONGO_URI || 'mongodb://localhost:27017/messagesDB';
+const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/messagesDB';
 
 mongoose.connect(mongoUri)
   .then(() => console.log('Connected to MongoDB'))
