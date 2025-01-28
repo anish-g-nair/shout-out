@@ -31,11 +31,20 @@ const MainPage = () => {
     }));
   }, [messages, cardColors]);
 
+  const getDateString = (date) => {
+    let dateStr = '';
+    if(date && date instanceof Date) {
+      dateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getDate()}`
+    }
+    return dateStr;
+  }
+
   const fetchMessages = useCallback(async () => {
     try {
       const queryParams = [];
       if (filter) queryParams.push(`recipient.name=${filter}`);
-      if (selectedDate) queryParams.push(`date=${selectedDate.toISOString().split('T')[0]}`); // Format date as yyyy-mm-dd
+      // if (selectedDate) queryParams.push(`date=${selectedDate.toISOString().split('T')[0]}`); // Format date as yyyy-mm-dd
+      if (selectedDate) queryParams.push(`date=${getDateString(selectedDate)}`); // Format date as yyyy-mm-dd
       const queryString = queryParams.length ? `?${queryParams.join('&')}` : '';
 
       const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}${queryString}`);
@@ -156,12 +165,13 @@ const MainPage = () => {
                   onClick={handleLabelClick}
                   className="text-sm cursor-pointer text-blue-500"
                 >
-                  ({selectedDate.toLocaleDateString()}) Set Date
+                  ({selectedDate.toLocaleDateString()})
                 </span>
               </div>
             )}
             {showDatePicker && (
               <DatePicker
+                placeholderText="Select a date"
                 selected={selectedDate}
                 onChange={handleDateChange}
                 dateFormat="yyyy/MM/dd"
