@@ -1,7 +1,7 @@
 const express = require('express');
 const Message = require('../models/message');
 const router = express.Router();
-const connectToDatabase = require('../db.js');
+// const connectToDatabase = require('../db.js');
 
 // GET all messages with optional filters
 
@@ -34,7 +34,7 @@ router.get('/messages', async (req, res) => {
       };
     }
     
-    await connectToDatabase();
+    // await connectToDatabase();
     
     // Fetch messages from database based on filter
     const messages = await Message.find(filter).sort({ date: -1 });
@@ -58,7 +58,7 @@ router.post('/messages', async (req, res) => {
       date: msg.date || new Date(), // Ensure each message has a date field
     }));
 
-    await connectToDatabase();
+    // await connectToDatabase();
 
     const savedMessages = await Message.insertMany(transformedMessages);
     res.status(201).json(savedMessages);
