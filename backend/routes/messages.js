@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/api/messages', async (req, res) => {
+router.get('/messages', async (req, res) => {
   try {
     const filter = {};
 
@@ -44,7 +44,7 @@ router.get('/api/messages', async (req, res) => {
 });
 
 // POST new messages
-router.post('/api/messages', async (req, res) => {
+router.post('/messages', async (req, res) => {
   try {
     const transformedMessages = req.body.map((msg) => ({
       recipient: msg.recipient, // Use `recipient` object directly
