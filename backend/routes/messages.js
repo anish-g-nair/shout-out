@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    res.send('Ask me something else')
+    res.send('Ask me something else');
   } catch (error) {
     console.error('Error fetching messages:', error);
     res.status(500).json({ error: 'Internal server error' });
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 router.get('/messages', async (req, res) => {
   try {
     const filter = {};
-
+res.send('Ask me something else');
     // Filter by recipient name if present
     if (req.query['recipient.name']) {
       filter['recipient.name'] = req.query['recipient.name'];
