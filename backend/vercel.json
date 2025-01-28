@@ -9,7 +9,7 @@
   "routes": [
     {
       "src": "/messages",
-      "dest": "server.js"
+      "dest": "routes/messages.js"
     },
     {
       "src": "/",
