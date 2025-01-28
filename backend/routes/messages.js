@@ -4,7 +4,7 @@ const router = express.Router();
 
 // GET all messages with optional filters
 
-router.get('/', async (req, res) => {
+router.get('/test', async (req, res) => {
   try {
     res.send('Ask me something else');
   } catch (error) {
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/messages', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const filter = {};
     // Filter by recipient name if present
@@ -43,7 +43,7 @@ router.get('/messages', async (req, res) => {
 });
 
 // POST new messages
-router.post('/messages', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const transformedMessages = req.body.map((msg) => ({
       recipient: msg.recipient, // Use `recipient` object directly
