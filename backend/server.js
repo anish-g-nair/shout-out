@@ -7,7 +7,14 @@ const messageRoutes = require('./routes/messages'); // Import the updated routes
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+// Configure CORS middleware
+app.use(
+  cors({
+    origin: 'http://example.com', // Allow only this origin to access the server
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    credentials: true, // Enable cookies and other credentials in requests
+  })
+);
 app.use(bodyParser.json());
 
 // MongoDB Connection
