@@ -8,6 +8,10 @@
   ],
   "routes": [
     {
+      "src": "/messages",
+      "dest": "server.js"
+    },
+    {
       "src": "/",
       "dest": "server.js"
     }
