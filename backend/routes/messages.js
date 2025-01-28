@@ -34,8 +34,6 @@ router.get('/messages', async (req, res) => {
     }
 
     // Fetch messages from database based on filter
-    console.log('Message', Message);
-    res.send('Ask me something else');
     const messages = await Message.find(filter).sort({ date: -1 });
     res.json(messages);
   } catch (error) {
