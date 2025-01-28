@@ -8,12 +8,12 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/$1"
+      "src": "/api/messages",
+      "dest": "routes/messages.js"
     },
     {
       "src": "/",
-      "dest": "/"
+      "dest": "server.js"
     }
   ]
 }
