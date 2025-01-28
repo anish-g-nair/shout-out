@@ -3,6 +3,16 @@ const Message = require('../models/message');
 const router = express.Router();
 
 // GET all messages with optional filters
+
+router.get('/', async (req, res) => {
+  try {
+    res.send('Ask me something else')
+  } catch (error) {
+    console.error('Error fetching messages:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 router.get('/api/messages', async (req, res) => {
   try {
     const filter = {};
