@@ -16,7 +16,6 @@ router.get('/', async (req, res) => {
 router.get('/messages', async (req, res) => {
   try {
     const filter = {};
-res.send('Ask me something else');
     // Filter by recipient name if present
     if (req.query['recipient.name']) {
       filter['recipient.name'] = req.query['recipient.name'];
@@ -35,6 +34,8 @@ res.send('Ask me something else');
     }
 
     // Fetch messages from database based on filter
+    console.log('Message', Message);
+    res.send('Ask me something else');
     const messages = await Message.find(filter).sort({ date: -1 });
     res.json(messages);
   } catch (error) {
