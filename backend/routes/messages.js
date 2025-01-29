@@ -1,9 +1,41 @@
 const express = require('express');
 const Message = require('../models/message');
 const router = express.Router();
-const connectToDatabase = require('../db.js');
+// const connectToDatabase = require('../db.js');
 
-// GET all messages with optional filters
+const mongoose = require('mongoose');
+const mongoUri = 'mongodb+srv://devputler:JAC0ejgvHY3EGNJw@default.7oahe.mongodb.net/global_board?retryWrites=true&w=majority&appName=Default' || process.env.MONGO_URI;
+
+if (!mongoUri) {
+  throw new Error('MONGO_URI is not defined in environment variables');
+}
+
+let isConnected;
+
+const connectToDatabase = async () => {
+  try {
+    if (isConnected) {
+      return mongoose.connection;
+    }
+
+    if (mongoose.connection.readyState) {
+      isConnected = true;
+      return mongoose.connection;
+    }
+
+    const db = await mongoose.connect(mongoUri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    isConnected = true;
+    console.log('Connected to MongoDB');
+    return db;
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error);
+    throw new Error('Could not connect to database');
+  }
+};
 
 router.get('/', async (req, res) => {
   try {
@@ -14,6 +46,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// GET all messages with optional filters
 router.get('/messages', async (req, res) => {
   try {
     const filter = {};
