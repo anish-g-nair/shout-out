@@ -6,15 +6,15 @@ const messageRoutes = require('./routes/messages'); // Import the updated routes
 
 require('dotenv').config();
 
-const app = express();
-// Configure CORS middleware
-app.use(
-  cors({
+const corsConfig = {
     origin: ['https://shout-out-fe-app.vercel.app'], // Allow only this origin to access the server
     methods: ['GET', 'POST'], // Allowed HTTP methods
     credentials: true, // Enable cookies and other credentials in requests
-  })
-);
+};
+const app = express();
+// Configure CORS middleware
+app.options("", cors(corsConfig))
+app.use(cors(corsConfig));
 app.use(bodyParser.json());
 
 // MongoDB Connection
