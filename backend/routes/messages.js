@@ -69,7 +69,7 @@ router.get('/messages', async (req, res) => {
       };
     }
     
-    // await connectToDatabase();
+    await connectToDatabase();
     
     // Fetch messages from database based on filter
     const messages = await Message.find(filter).sort({ date: -1 });
