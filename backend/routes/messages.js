@@ -93,7 +93,7 @@ router.post('/messages', async (req, res) => {
       date: msg.date || new Date(), // Ensure each message has a date field
     }));
 
-    // await connectToDatabase();
+    await connectToDatabase();
 
     const savedMessages = await Message.insertMany(transformedMessages);
     res.status(201).json(savedMessages);
