@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const messageRoutes = require('./routes/messages'); // Import the updated routes
 
-require('dotenv').config();
+require('dotenv').config(); // Some comment to delete
 
 const corsConfig = {
     origin: ['https://shout-out-fe-app.vercel.app'], // Allow only this origin to access the server
