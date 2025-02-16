@@ -1,4 +1,4 @@
-ultconst express = require('express');
+const express = require('express');
 const Message = require('../models/message');
 const router = express.Router();
 // const connectToDatabase = require('../db.js');
