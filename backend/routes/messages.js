@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const mongoUri = process.env.MONGO_URI;
 // const mongoUri = 'mongodb+srv://putleracademy:cA7UhtiSQlAbTaxh@globalboard.gs13g.mongodb.net/notes?retryWrites=true&w=majority&appName=globalboard'
 
-if (!mongoUri) {
+if (!mongoUri) { //
   throw new Error('MONGO_URI is not defined in environment variables');
 }
 
