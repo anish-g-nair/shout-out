@@ -2,11 +2,12 @@ const express = require('express');
 const Message = require('../models/message');
 const router = express.Router();
 // const connectToDatabase = require('../db.js');
+require('dotenv').config();
 
 const mongoose = require('mongoose');
 // const mongoUri = 'mongodb+srv://devputler:JAC0ejgvHY3EGNJw@default.7oahe.mongodb.net/default?retryWrites=true&w=majority&appName=Default' || process.env.MONGO_URI;
-// const mongoUri = process.env.MONGODB_URI;
-const mongoUri = 'mongodb+srv://putleracademy:cA7UhtiSQlAbTaxh@globalboard.gs13g.mongodb.net/notes?retryWrites=true&w=majority&appName=globalboard'
+const mongoUri = process.env.MONGODB_URI;
+// const mongoUri = 'mongodb+srv://putleracademy:cA7UhtiSQlAbTaxh@globalboard.gs13g.mongodb.net/notes?retryWrites=true&w=majority&appName=globalboard'
 
 if (!mongoUri) {
   throw new Error('MONGO_URI is not defined in environment variables');
