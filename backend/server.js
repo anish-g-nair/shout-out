@@ -9,7 +9,7 @@ require('dotenv').config(); // Some comment to delete
 const corsConfig = {
     // origin: ['https://shout-out-fe-app.vercel.app'], // Allow only this origin to access the server
     origin: '*',
-    methods: ['GET', 'POST'], // Allowed HTTP methods
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     // credentials: true, // Enable cookies and other credentials in requests
 };
 const app = express();
