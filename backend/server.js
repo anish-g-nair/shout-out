@@ -10,7 +10,7 @@ const corsConfig = {
     // origin: ['https://shout-out-fe-app.vercel.app'], // Allow only this origin to access the server
     origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-    allowedHeaders: ['Content-Type'],  // Allow these headers (add any custom headers if needed)
+    allowedHeaders: '*',  // Allow these headers (add any custom headers if needed)
     // credentials: true, // Enable cookies and other credentials in requests
 };
 const app = express();
