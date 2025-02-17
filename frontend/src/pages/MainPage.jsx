@@ -81,7 +81,9 @@ const MainPage = () => {
   // Submit all messages to the backend
   const submitMessages = async () => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}`, inputs);
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}`, inputs,  headers: {
+        'Content-Type': 'application/json',  // Ensure the content-type is correctly set
+    });
       setMessages((prevMessages) => [...prevMessages, ...response.data]);
       setInputs([{ recipient: { name: '', email: '' }, message: '', from: '' }]);
       toast.success('Messages submitted successfully!'); // Show success toast
